@@ -16,20 +16,26 @@ public class Bingo {
         System.out.println("Угадайте число 0 до 100: ");
         int number = scan.nextInt();
 
+        int count = 0;
+
         while (true) {
             if (number < 0) {
                 System.out.println("Очень жаль, до свиданья");
+                System.out.println("Количество попыток: " + count);
                 return;
             }
 
+            count++;
             if (secret == number) {
                 System.out.println("Поздравляю! Вы угадали число");
+                System.out.println("Количество попыток: " + count);
                 return;
             } else if (secret < number) {
                 System.out.println("Не угадали, введенное число больше загаданного");
             } else {
                 System.out.println("Не угадали, введенное число меньше загаданного");
             }
+
             System.out.println("Повторите попытку введя число от 0 до 100: ");
             number = scan.nextInt();
         }
